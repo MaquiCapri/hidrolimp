@@ -1,0 +1,11 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-lg-4" *ngFor="let prod of productData">
+            <div class="productbox mt-3 mb-3">
+                <img src="" alt="">
+                <h3> {{prod.nombre}} </h3>
+                <p> {{prod.precio | currency:'ARS ':true}} </p>
+            </div>
+        </div>
+    </div>
+</div>

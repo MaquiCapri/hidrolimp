@@ -1,0 +1,25 @@
+<div class="banner">
+    <div class="content">
+        <h1 class="mb-5">HIDROLIMP<br />Hidrolavadoras</h1>
+        <a routerLink="/productos" class="irProductos">ver productos<i class="bi bi-arrow-right"></i></a>
+    </div>
+</div>
+
+<!-- productos -->
+
+<div class="container mt-4 md-4">
+    <h1 class="text-center">Productos<span class="highlight"> HIDROLIMP</span></h1>
+    <div class="row">
+        <div class="col-lg-3 mt-3" *ngFor="let prod of productData; index as i">
+            <div class="productbox" *ngIf="i<=3">
+                <img src="" alt="">
+                <h3> {{prod.nombre}} </h3>
+                <p> {{prod.precio | currency:'ARS ':true}} </p>
+            </div>
+        </div>
+    </div>
+    <a routerLink="productos" class="irProductos">Productos <i class="bi bi-arrow-right"></i></a>
+    <br>
+    <br>
+
+</div>

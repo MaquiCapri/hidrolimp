@@ -1,0 +1,11 @@
+.container{
+    margin-top: 15px;
+}
+.foto{
+    width: 8rem;
+    float: right;
+}
+
+img{
+    width:100%;
+}

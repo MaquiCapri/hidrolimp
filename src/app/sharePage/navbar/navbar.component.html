@@ -1,0 +1,31 @@
+<ul class="nav nav-tabs">
+  <div class="logo">
+    <img src="./assets/logoHidrolimp1.jpg">
+  </div>
+
+  <li class="nav-item ">
+    <a class="nav-link" aria-current="page" routerLinkActive="active" [routerLink]="('')">Home</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+      aria-expanded="false" [routerLink]="('productos')">Productos</a>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item">Productos</a></li>
+      <li><a class="dropdown-item">Another action</a></li>
+      <li><a class="dropdown-item" [routerLink]="('about')">Something else here</a></li>
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <li><a class="dropdown-item">Separated link</a></li>
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " [routerLink]="('lista')" routerLinkActive="active">Lista</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLinkActive="active" [routerLink]="('about')">About</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " [routerLink]="('contacto')" routerLinkActive="active">Contacto</a>
+  </li>
+</ul>

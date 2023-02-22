@@ -1,0 +1,18 @@
+.logo{
+    width: 5rem;
+    height: 2rem;
+}
+
+.logo img{
+    width: 100%; 
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.active{
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+li{
+    margin-left: 20px;
+}
