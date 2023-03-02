@@ -2,6 +2,7 @@
     padding: 10px 5px;
 
 }
+
 .productbox img
 {
 width: 100%;
@@ -14,3 +15,8 @@ h3
 {
     font-size: 18px;
 }
+
+.categoria{
+    background-color:#3f51b5 ;
+}
+

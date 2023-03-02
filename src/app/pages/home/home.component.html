@@ -1,24 +1,23 @@
-<div class="banner">
+<div class="banner" style="background-image: url('./assets/portada.jpg')">
     <div class="content">
-        <h1 class="mb-5">HIDROLIMP<br />Hidrolavadoras</h1>
-        <a routerLink="/productos" class="irProductos">ver productos<i class="bi bi-arrow-right"></i></a>
+        <h1 class="mb-5">HIDROLIMP<br />Mario Caprioglio</h1>
+        <a href="#prod" class="irProductos">ver productos<i class="bi bi-arrow-right"></i></a>
     </div>
 </div>
 
-<!-- productos -->
+<!-- productos categorias-->
 
-<div class="container mt-4 md-4">
+<div class="container mt-4 md-4" id="prod" >
     <h1 class="text-center">Productos<span class="highlight"> HIDROLIMP</span></h1>
     <div class="row">
         <div class="col-lg-3 mt-3" *ngFor="let prod of productData; index as i">
-            <div class="productbox" *ngIf="i<=3">
-                <img src="" alt="">
-                <h3> {{prod.nombre}} </h3>
-                <p> {{prod.precio | currency:'ARS ':true}} </p>
+            <div class="productbox" *ngIf="i<=3" [routerLink]="['/productos',prod.categoria]">
+                <img src=" {{prod.imagen}} " alt="">
+               <h3> {{prod.nombre}} </h3>
             </div>
         </div>
     </div>
-    <a routerLink="productos" class="irProductos">Productos <i class="bi bi-arrow-right"></i></a>
+    <a routerLink="lista" class="irLista">Lista <i class="bi bi-arrow-right"></i></a>
     <br>
     <br>
 

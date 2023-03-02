@@ -10,6 +10,7 @@ import { ProductosComponent } from './pages/productos/productos.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'productos', component: ProductosComponent },
+  { path: 'productos/:categoria', component: ProductosComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contacto', component: ContactoComponent },
   { path: 'lista', component: ListaProductoComponent },
