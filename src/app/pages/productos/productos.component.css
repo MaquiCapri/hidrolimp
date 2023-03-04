@@ -1,22 +1,42 @@
-.productbox{
-    padding: 10px 5px;
-
+.productbox {
+    padding: 10px 15px;
+    height: 100%;
 }
 
-.productbox img
-{
-width: 100%;
-height: 250px;
-object-fit: cover;
-border-radius: 5px;
+.productbox img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
-h3
-{
+.productbox:hover {
+    border: 1px solid rgb(32, 32, 32);
+    border-radius: 20px;
+}
+
+h3 {
     font-size: 18px;
+    padding-top: 10px;
+    font-weight: 600;
 }
 
-.categoria{
-    background-color:#3f51b5 ;
+.categoria {
+    background-color: #3f51b5;
 }
 
+.paginacion
+{
+    display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+pagination-controls
+{
+color: #3f51b5;
+}
+
+    /* ::ng-deep .ngx-pagination .current{
+        background-color: rgb(15, 15, 15);
+        } */

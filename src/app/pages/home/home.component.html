@@ -1,24 +1,40 @@
 <div class="banner" style="background-image: url('./assets/portada.jpg')">
+
     <div class="content">
-        <h1 class="mb-5">HIDROLIMP<br />Mario Caprioglio</h1>
+        <h1 class="mb-5">HIDROLIMP <br />Mario Caprioglio</h1>
         <a href="#prod" class="irProductos">ver productos<i class="bi bi-arrow-right"></i></a>
     </div>
 </div>
 
 <!-- productos categorias-->
-
-<div class="container mt-4 md-4" id="prod" >
+<div class="container mt-4 md-4" id="prod">
     <h1 class="text-center">Productos<span class="highlight"> HIDROLIMP</span></h1>
     <div class="row">
-        <div class="col-lg-3 mt-3" *ngFor="let prod of productData; index as i">
-            <div class="productbox" *ngIf="i<=3" [routerLink]="['/productos',prod.categoria]">
-                <img src=" {{prod.imagen}} " alt="">
-               <h3> {{prod.nombre}} </h3>
-            </div>
-        </div>
-    </div>
-    <a routerLink="lista" class="irLista">Lista <i class="bi bi-arrow-right"></i></a>
-    <br>
-    <br>
+        
+        <div class="col-lg-3 mt-3">
+           <div class="productbox" id="uno" [routerLink]="['/productos','hidrolavadoras']">
+                <img src="assets/hidrolavadora.png" alt="">
+               <h3> HIDROLAVADORAS</h3>
+            </div> 
 
+            <div class="productbox" id="dos" [routerLink]="['/productos','accesorios']">
+                <img src="assets/pico_chato36-300x300.jpg" alt="">
+                <h3> ACCESORIOS </h3>
+            </div>
+
+            <div class="productbox" id="tres" [routerLink]="['/productos','aspiradoras']">
+                 <img src="assets/aspiradora.jpg" alt="">
+                 <h3> ASPIRADORAS </h3>
+           </div>
+
+           <div class="productbox" id="cuatro" [routerLink]="['/productos','repuestos']">
+                  <img src="assets/repuesto.jpg" alt="">
+                  <h3> REPUESTOS </h3>
+           </div>
+        </div>  
+
+  </div>
+      <a routerLink="lista" class="irLista">Lista <i class="bi bi-arrow-right"></i></a>
+      <br>
+      <br>
 </div>

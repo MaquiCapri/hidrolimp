@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServicesService } from 'src/app/service/services.service';
 import { Producto } from '../../producto.model';
 
@@ -13,15 +14,16 @@ import { Producto } from '../../producto.model';
   styleUrls: ['./lista-producto.component.css']
 })
 export class ListaProductoComponent implements OnInit {
+
   productData: any;
   displayedColumns: string[] = ['nombre', 'precio'];
   dataSource: MatTableDataSource<Producto>;
-  
  
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public dialog: MatDialog,private service: ServicesService ) {
+  constructor(public dialog: MatDialog, private service: ServicesService, private router: Router, public param: ActivatedRoute) {
     this.productData = this.service.Productos;
     this.dataSource = new MatTableDataSource(this.productData);
     this.dataSource.sort = this.sort;
@@ -42,6 +44,7 @@ export class ListaProductoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   
   }
 
   // addEditPersona() {

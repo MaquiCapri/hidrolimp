@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServicesService } from 'src/app/service/services.service';
 
 @Component({
@@ -12,8 +12,11 @@ export class ProductosComponent implements OnInit {
   // categorias = true;
  getMenuCategoria: any;
  menuData: any;
+ p: number = 1;
+ itemsPerPage: number= 8;
+totalProduct:any;
 
-  constructor(private service: ServicesService,public param: ActivatedRoute) {}
+  constructor(private service: ServicesService,private router: Router,public param: ActivatedRoute) {}
 
   ngOnInit(): void {
     // this.productData = this.service.Productos;
@@ -28,5 +31,7 @@ if(this.getMenuCategoria){
 console.log(this.menuData,'getmenu')
 
 }
+this.totalProduct = this.menuData.lenght;
+
 }
 }

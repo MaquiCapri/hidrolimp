@@ -1,0 +1,17 @@
+<div class="container" *ngIf="menuData" >
+  <!-- mt-5 mb-5 -->
+
+    <div class="col-lg-1" *ngFor="let prod of menuData">
+
+      <div class="productbox mt-3 mb-3">
+        <img src=" {{prod.imagen}} " alt="fotoProducto">
+        <div class="texto">
+          <h3> {{prod.nombre}} </h3>
+          <p> {{prod.descripcion}} </p>
+          <p> {{prod.precio | currency:'ARS ':true}} </p>
+        </div>
+      </div>
+
+    </div>
+  
+</div>

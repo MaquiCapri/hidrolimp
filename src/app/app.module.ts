@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 //componentes:
@@ -14,6 +14,7 @@ import { ListaProductoComponent } from './pages/lista-producto/lista-producto.co
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { FooterComponent } from './sharePage/footer/footer.component';
+import { ProductoDetalleComponent } from './pages/producto-detalle/producto-detalle.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +26,15 @@ import { FooterComponent } from './sharePage/footer/footer.component';
     NavbarComponent,
     ListaProductoComponent,
     FooterComponent,
+    ProductoDetalleComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

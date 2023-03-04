@@ -10,37 +10,37 @@ export class ServicesService {
   Productos = [
     {
       id: 1,
-      nombre: "HIDROLAVADORAS",
-      precio: 4,
+      nombre: "HIDROJET 701 Hidrolavadora Uso",
+      precio: 81549,
       categoria: "hidrolavadoras",
-      imagen: "assets/hidrolavadora.png",
-      descripcion: "ad",
+      imagen: "assets/lutian701-300x300.jpg",
+      descripcion: "Semi Profesional 7.8 Litros/Min 140 Bar Máx 2100 W 220 V",
     },
     {
       id: 2,
-      nombre: "ACCESORIOS",
-      precio: 4,
+      nombre: "Paño 17' Negro para lava",
+      precio: 2904,
       categoria: "accesorios",
-      imagen: "assets/ENTRERROSCA.jpg",
-      descripcion: "ad",
+      imagen: "assets/pañonegro-300x300.jpg",
+      descripcion: "Lusty 400",
 
 
     }, {
       id: 3,
-      nombre: "ASPIRADORAS",
-      precio: 4,
+      nombre: "HIPPO WET Aspiradora Profesional",
+      precio: 156042,
       categoria: "aspiradoras",
-      imagen: "assets/aspiradora.jpg",
-      descripcion: "ad",
+      imagen: "assets/hippo_wet_1-600x747.png",
+      descripcion: " 1 Motor 1200 W Filtro de Agua Soteco Polvo/Líquido",
 
 
     }, {
       id: 4,
-      nombre: "REPUESTOS",
-      precio: 3000,
+      nombre: "Filtro Aspiradora ",
+      precio: 6152,
       categoria: "repuestos",
-      imagen: "assets/repuesto.jpg",
-      descripcion: "Boca entrada D'38 Ghibili Gamma CB30 CB60",
+      imagen: "assets/FILTROTELA-300x300.jpeg",
+      descripcion: "Conico S400",
       
     },
     {
@@ -139,6 +139,24 @@ export class ServicesService {
     imagen: "assets/T510.jpg",
     descripcion: "Aspiradora Industrial 3 HP 380V 60 lts Inox Solido/Liquido Monoturbina",
   },
+  {
+    id: 16,
+    nombre: "Ventilador De Motor Hidrolavadora",
+    precio:  5139,
+    categoria: "repuestos",
+    imagen: "assets/ventiladorbigbang-300x300.png",
+    descripcion: "Big Bang Flash Interpump",
+  },
+  {
+    id: 17,
+    nombre: "Electrodo Para Caldera",
+    precio:  6527,
+    categoria: "repuestos",
+    imagen: "assets/electrodo_omega-300x300.jpg",
+    descripcion: "Hidrolavadora Omega 150 200 Original",
+  },
+
+   
   
   ];
 

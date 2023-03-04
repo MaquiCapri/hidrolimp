@@ -1,24 +1,21 @@
-.logo{
+.logo {
     width: 9rem;
     height: 2rem;
 }
 
-.logo img{
-    width: 100%; 
-   margin-top: -5px;
+.logo img {
+    width: 100%;
+    margin-top: -5px;
     margin-left: 10px;
 }
 
-.active{
+/* .active {
     font-weight: 700;
     text-decoration: underline;
     color: #3f51b5;
 
-}
+} */
 
-a{
+a {
     color: rgb(34, 34, 34);
 }
-
-
-

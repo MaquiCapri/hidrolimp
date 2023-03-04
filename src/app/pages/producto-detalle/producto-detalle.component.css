@@ -1,0 +1,25 @@
+.productbox {
+    display: flex;
+    direction: row;
+    width: 40rem;
+}
+
+img {
+    width: 50%;
+    border: 1px solid rgb(41, 41, 41);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.texto {
+    padding: 20px;
+    width: 30rem;
+}
+
+@media (max-width: 590px) {
+
+    .productbox {
+        flex-wrap: wrap;
+        width: 20rem;
+    }
+}

@@ -1,10 +1,9 @@
  <div class="container mt-5 mb-5">
     <div class="row" *ngIf="menuData">
-      <p class="categoria"> {{menuData.categoria}} </p> 
-         
-      <div class="col-lg-4" *ngFor="let prod of menuData">
-           
-            <div class="productbox mt-3 mb-3">
+      
+      <div class="col-lg-3 col-md-4 col-sm-5" *ngFor="let prod of menuData  | paginate: { itemsPerPage:itemsPerPage, currentPage: p }" [routerLink]="['/producto',prod.id]">
+        <p class="categoria"> {{menuData.categoria}} </p> 
+            <div class="productbox mt-3 mb-3" >
                   <img src=" {{prod.imagen}} " alt="fotoProducto">
                 <h3> {{prod.nombre}} </h3> 
                  <p> {{prod.descripcion}} </p>
@@ -14,4 +13,6 @@
     </div>
 
 </div> 
-
+<div class="paginacion">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
