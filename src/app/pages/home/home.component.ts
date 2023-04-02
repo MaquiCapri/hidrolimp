@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Producto } from 'src/app/producto.model';
 import { ServicesService } from 'src/app/service/services.service';
 
 @Component({
@@ -8,16 +9,24 @@ import { ServicesService } from 'src/app/service/services.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  category: any[]= [];
+  
   constructor(private service: ServicesService,private router: Router) { }
-productData: any;
+
   
 ngOnInit(): void {
-    this.productData = this.service.Productos;
   }
 
   irProductos(){
       this.router.navigate(['productos']);
-    
+  }
+
+  todosProductos() {
+    this.service.getCategory('id').subscribe((data: any) => {
+      this.category = data;
+
+      console.log(this.category);
+     
+    });
   }
 }

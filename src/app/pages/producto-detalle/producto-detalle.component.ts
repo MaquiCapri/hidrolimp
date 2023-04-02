@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Producto } from 'src/app/producto.model';
 import { ServicesService } from 'src/app/service/services.service';
 
 @Component({
@@ -8,21 +10,22 @@ import { ServicesService } from 'src/app/service/services.service';
   styleUrls: ['./producto-detalle.component.css']
 })
 export class ProductoDetalleComponent implements OnInit {
-  getMenuId: any;
-  menuData: any;
-
-  constructor(private router: Router, public param: ActivatedRoute, private service: ServicesService) { }
+  
+  prod: any=[];
+ 
+  constructor(private router: Router, public param: ActivatedRoute, private service: ServicesService, private http: HttpClient) { 
+}
 
   ngOnInit(): void {
-    this.getMenuId = this.param.snapshot.paramMap.get('id');
-    console.log(this.getMenuId, 'getmenu')
-    if (this.getMenuId) {
-      this.menuData = this.service.Productos.filter((value) => {
-        return value.id == this.getMenuId;
-      });
-      console.log(this.menuData, 'getmenu')
-
-    }
-  }
+   let id = this.param.snapshot.paramMap.get('id');
+   console.log(id)
+   this.service.getProducto(id).subscribe(
+     data=> {
+      this.prod = data;
+      console.log(this.prod)
+   }
+   );
+           
+   }
 
 }

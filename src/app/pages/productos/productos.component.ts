@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Category } from 'src/app/category.model';
+import { Producto } from 'src/app/producto.model';
 import { ServicesService } from 'src/app/service/services.service';
 
 @Component({
@@ -8,30 +10,46 @@ import { ServicesService } from 'src/app/service/services.service';
   styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent implements OnInit {
-  // productData: any;
-  // categorias = true;
- getMenuCategoria: any;
- menuData: any;
- p: number = 1;
- itemsPerPage: number= 8;
-totalProduct:any;
+  categorias = true;
 
-  constructor(private service: ServicesService,private router: Router,public param: ActivatedRoute) {}
+  //  paginacion
+  getMenuCategoria: any;
+  p: number = 1;
+  itemsPerPage: number = 8;
+  totalProduct: any;
+//iteracion:
+  productos: any;
+  cate: any;
+  productosCategoria : any=[];
+ 
+  constructor(private service: ServicesService, private router: Router, private activatedRoute: ActivatedRoute, public param: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // this.productData = this.service.Productos;
-      // console.log(this.productData)
-  // }
-this.getMenuCategoria = this.param.snapshot.paramMap.get('categoria');
-console.log(this.getMenuCategoria,'getmenu')
-if(this.getMenuCategoria){
-  this.menuData = this.service.Productos.filter((value)=>{
-    return value.categoria == this.getMenuCategoria;
-  });
-console.log(this.menuData,'getmenu')
+   
+    let id = this.param.snapshot.paramMap.get('id');
+    console.log(id)
+    this.service.getCategory(id).subscribe(
+     data=> {
+       this.cate=data;
+       this.productosCategoria = data.productos;
+    this.totalProduct = data.lenght;
+
+       console.log( data.productos)
+    }
+    );
+  }
 
 }
-this.totalProduct = this.menuData.lenght;
+// if (this.theme.length ==0) {
+      //   this.alert5 = true;
+      //       }
+        //  if(this.(searchTerm)){
+        //  this.themes= [];
+        // console.log(searchTerm.lenght);
+      // }else {
+      //  alert("esta vacio ");
+        // }
 
-}
-}
+        // console.log(this.theme);
+    
+        // console.log(searchTerm.lenght);

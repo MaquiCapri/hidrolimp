@@ -1,13 +1,16 @@
  <div class="container mt-5 mb-5">
-    <div class="row" *ngIf="menuData">
-      
-      <div class="col-lg-3 col-md-4 col-sm-5" *ngFor="let prod of menuData  | paginate: { itemsPerPage:itemsPerPage, currentPage: p }" [routerLink]="['/producto',prod.id]">
-        <p class="categoria"> {{menuData.categoria}} </p> 
+    <div class="row" >
+      <!-- *ngIf="prod" -->
+ 
+      <div class="col-lg-3 col-md-4 col-sm-5" *ngFor="let productosCategoria of productosCategoria  | paginate: { itemsPerPage:itemsPerPage, currentPage: p } | objToArray" routerLink="/producto/{{productosCategoria.id}}">
+        <!-- <p class="categoria"> {{prod.categoria}} </p>  -->
+        
             <div class="productbox mt-3 mb-3" >
-                  <img src=" {{prod.imagen}} " alt="fotoProducto">
-                <h3> {{prod.nombre}} </h3> 
-                 <p> {{prod.descripcion}} </p>
-                <p> {{prod.precio | currency:'ARS ':true}} </p> 
+             
+                 <img src=" {{productosCategoria.imagen}} " alt="fotoProducto"> 
+                 <h3> {{productosCategoria.nombre}} </h3>  
+                 <p> {{productosCategoria.descripcion}}</p>
+                  <p> {{productosCategoria.precio | currency:'ARS ':true}} </p>   
             </div>
          </div> 
     </div>

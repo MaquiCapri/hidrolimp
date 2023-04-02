@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { FooterComponent } from './sharePage/footer/footer.component';
 import { ProductoDetalleComponent } from './pages/producto-detalle/producto-detalle.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ObjToArrayPipe } from './objToArray.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { ProductoDetalleComponent } from './pages/producto-detalle/producto-deta
     ListaProductoComponent,
     FooterComponent,
     ProductoDetalleComponent,
+    ObjToArrayPipe
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { ProductoDetalleComponent } from './pages/producto-detalle/producto-deta
     BrowserAnimationsModule,
     SharedModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

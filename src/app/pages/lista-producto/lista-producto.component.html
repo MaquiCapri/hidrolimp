@@ -1,28 +1,41 @@
 
+<br>
 <mat-toolbar color="primary">
     <span>Listado de productos</span>
   </mat-toolbar>
+  <br>
+  <mat-form-field>
+    <mat-label>Filtro</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="escribir producto o categoria" #input autocomplete="off">
+  </mat-form-field>
 
-  <mat-card>
-    <mat-form-field>
-      <mat-label>Filtro</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="escribir producto" #input autocomplete="off">
-    </mat-form-field>
-    <table matSort mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+   <div class="mat-elevation-z8"> 
 
-        <!-- Position Column -->
-        <ng-container matColumnDef="nombre" >
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Producto</th>
-          <td mat-cell *matCellDef="let productData"  [routerLink]="['/producto',productData.id]"> {{productData.nombre}} </td>
-        </ng-container>
-        <ng-container matColumnDef="precio">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Precio</th>
-            <td mat-cell *matCellDef="let productData" > {{productData.precio | currency:'ARS ':true}} </td>
+    <table mat-table [dataSource]="dataSource" matSort >
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Producto </th>
+        <td mat-cell *matCellDef="let listaProd" routerLink="/producto/{{listaProd.id}}"> {{listaProd.nombre}} </td>
+      </ng-container>
+    
+          <!-- Precio -->
+          <ng-container matColumnDef="precio">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Precio </th>
+            <td mat-cell *matCellDef="let listaProd" routerLink="/producto/{{listaProd.id}}"> {{listaProd.precio | currency:'ARS ':true}} </td>
           </ng-container>
-          
-         <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;" id="marca"></tr>
-      </table>
-      
-       <mat-paginator [pageSizeOptions]="[ 10, 25, 100]" aria-label="Select page of users"></mat-paginator> 
-  </mat-card>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="categoria">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Categoria </th>
+        <td mat-cell *matCellDef="let listaProd" routerLink="/producto/{{listaProd.id}}"> {{listaProd.categoria}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" id="marca"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    
+   </div>
+    

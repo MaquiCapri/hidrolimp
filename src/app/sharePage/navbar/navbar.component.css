@@ -19,3 +19,15 @@
 a {
     color: rgb(34, 34, 34);
 }
+
+
+.navbar-toggler{
+ color: transparent; 
+padding: 0px 30px;
+
+}
+
+#oculta{
+    color: rgb(116, 115, 115);
+    margin: 30px;
+}

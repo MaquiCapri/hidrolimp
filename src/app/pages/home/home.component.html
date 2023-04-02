@@ -10,30 +10,32 @@
 <div class="container mt-4 md-4" id="prod">
     <h1 class="text-center">Productos<span class="highlight"> HIDROLIMP</span></h1>
     <div class="row">
+    
         
         <div class="col-lg-3 mt-3">
-           <div class="productbox" id="uno" [routerLink]="['/productos','hidrolavadoras']">
+           <div class="productbox" id="uno" routerLink="/category/{{1}}">
                 <img src="assets/hidrolavadora.png" alt="">
                <h3> HIDROLAVADORAS</h3>
             </div> 
 
-            <div class="productbox" id="dos" [routerLink]="['/productos','accesorios']">
+            <div class="productbox" id="dos" routerLink="/category/{{2}}">
                 <img src="assets/pico_chato36-300x300.jpg" alt="">
                 <h3> ACCESORIOS </h3>
             </div>
 
-            <div class="productbox" id="tres" [routerLink]="['/productos','aspiradoras']">
+            <div class="productbox" id="tres" routerLink="/category/{{3}}">
                  <img src="assets/aspiradora.jpg" alt="">
                  <h3> ASPIRADORAS </h3>
            </div>
 
-           <div class="productbox" id="cuatro" [routerLink]="['/productos','repuestos']">
+           <div class="productbox" id="cuatro" routerLink="/category/{{4}}">
                   <img src="assets/repuesto.jpg" alt="">
                   <h3> REPUESTOS </h3>
            </div>
         </div>  
 
   </div>
+  <br>
       <a routerLink="lista" class="irLista">Lista <i class="bi bi-arrow-right"></i></a>
       <br>
       <br>

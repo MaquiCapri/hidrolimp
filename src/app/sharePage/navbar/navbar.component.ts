@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+ ocultar1= true;
 
   constructor() { }
 
   ngOnInit(): void {
   }
+  
+  ocultar(){
+this.ocultar1=false;
+  }
 
+ mostrar(){
+this.ocultar1=true;
+console.log(this.ocultar1)
+
+ }
 }

@@ -12,7 +12,8 @@
  import {MatInputModule} from '@angular/material/input';
  import {MatIconModule} from '@angular/material/icon';
  import {MatTooltipModule} from '@angular/material/tooltip';
- import {MatButtonModule} from '@angular/material/button'; import {MatDialogModule} from '@angular/material/dialog';
+ import {MatButtonModule} from '@angular/material/button'; 
+ import {MatDialogModule} from '@angular/material/dialog';
  import {MatSelectModule} from '@angular/material/select';
  import {MatDatepickerModule} from '@angular/material/datepicker';
  import { MatNativeDateModule } from '@angular/material/core';
@@ -35,8 +36,10 @@
      MatButtonModule,
      MatDialogModule,
      MatSelectModule,
-     MatDatepickerModule,     MatNativeDateModule,
-     ReactiveFormsModule
+     MatDatepickerModule,     
+     ReactiveFormsModule,
+     MatNativeDateModule,
+
    ],
    exports:[
      MatSlideToggleModule ,

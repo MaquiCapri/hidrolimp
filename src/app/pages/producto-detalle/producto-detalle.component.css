@@ -2,12 +2,12 @@
     display: flex;
     direction: row;
     width: 40rem;
+    border-radius: 20px;
+    border: 1px solid rgb(41, 41, 41);
 }
 
 img {
     width: 50%;
-    border: 1px solid rgb(41, 41, 41);
-    border-radius: 20px;
     padding: 10px;
 }
 
@@ -21,5 +21,8 @@ img {
     .productbox {
         flex-wrap: wrap;
         width: 20rem;
+
     }
+ 
+
 }
