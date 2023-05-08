@@ -1,9 +1,35 @@
+.section {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    width: 70%;
+    height: 70vh;
+    margin: 45px auto;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, .3);
+}
+
+.section img {
+    width: 80%;
+    height: 100%;
+    padding: 10px;
+}
+
+
+
+/* .container{
+    background-color: rgb(219, 219, 219);
+}
+
 .productbox {
     display: flex;
     direction: row;
-    width: 40rem;
+    width: 70vw;
     border-radius: 20px;
     border: 1px solid rgb(41, 41, 41);
+    background-color: white;
+    align-items: center;
+
 }
 
 img {
@@ -14,15 +40,12 @@ img {
 .texto {
     padding: 20px;
     width: 30rem;
-}
+/* } */
 
-@media (max-width: 590px) {
+@media (max-width: 600px) {
 
-    .productbox {
+    .section {
         flex-wrap: wrap;
-        width: 20rem;
-
     }
- 
 
 }

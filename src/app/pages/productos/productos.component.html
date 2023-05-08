@@ -1,9 +1,7 @@
  <div class="container mt-5 mb-5">
     <div class="row" >
-      <!-- *ngIf="prod" -->
  
-      <div class="col-lg-3 col-md-4 col-sm-5" *ngFor="let productosCategoria of productosCategoria  | paginate: { itemsPerPage:itemsPerPage, currentPage: p } | objToArray" routerLink="/producto/{{productosCategoria.id}}">
-        <!-- <p class="categoria"> {{prod.categoria}} </p>  -->
+      <div class="col-lg-3 col-md-4 col-sm-5" *ngFor="let productosCategoria of productosCategoria | objToArray | paginate: { itemsPerPage:itemsPerPage, currentPage: p } " routerLink="/producto/{{productosCategoria.id}}" >
         
             <div class="productbox mt-3 mb-3" >
              

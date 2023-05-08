@@ -1,0 +1,73 @@
+<!-- <div class="bootstrap-wrapper"> -->
+
+<div class="col-md-4 offset-md-3">
+   <div class="text-center">
+    <img src="assets/flaticon.png" alt="" width="100" height="100">
+   </div>
+
+    <h1 class="text-center">Registrate aquí</h1>
+
+    <form (ngSubmit)="onSubmit()" #usuarioForm="ngForm" autocomplete="off">
+        <div class="form-group">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Nombre de usuario:</mat-label>
+                <input  matInput id="nombreUsuario" [(ngModel)]="user.nombreUsuario"
+                    name="nombreUsuario" required minlength="4" maxlength="20" #nombreUsuario="ngModel">
+                <mat-hint role="alert" style="height: 13px; font-size: small; "
+                    *ngIf="nombreUsuario.invalid && (nombreUsuario.dirty || nombreUsuario.touched)">
+                    <mat-hint *ngIf="nombreUsuario.errors['required']">Digite su nombre de usuario, por favor.</mat-hint>
+                    <mat-hint *ngIf="nombreUsuario.errors['minlength'] "> Mínimo 4 caracteres.</mat-hint>
+                    <mat-hint *ngIf="nombreUsuario.errors['maxlength'] "> Maximo 20 caracteres.</mat-hint>
+                </mat-hint>
+            </mat-form-field>
+        </div>
+        <!-- class="alert alert-danger" -->
+        <div class="form-group">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Nombre:</mat-label>
+                <input type="text"  matInput id="nombre" [(ngModel)]="user.nombre" name="nombre" required
+                    minlength="4" maxlength="20" #nombre="ngModel">
+                <mat-hint role="alert" style="height: 13px; font-size: small; "
+                    *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                    <mat-hint *ngIf="nombre.errors['required']">Digite su nombre, por favor.</mat-hint>
+                    <mat-hint *ngIf="nombre.errors['minlength'] "> Mínimo 4 caracteres.</mat-hint>
+                    <mat-hint *ngIf="nombre.errors['maxlength'] "> Maximo 20 caracteres.</mat-hint>
+                </mat-hint>
+            </mat-form-field>
+        </div>
+
+        <div class="form-group">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Contraseña:</mat-label>
+                <input type="text"  matInput id="password" [(ngModel)]="user.password" name="password"
+                    required minlength="4" maxlength="20" #password="ngModel">
+                <mat-hint role="alert" style="height: 13px; font-size: small; "
+                    *ngIf="password.invalid && (password.dirty || password.touched)">
+                    <mat-hint *ngIf="nombre.errors['required']">Digite su contraseña, por favor.</mat-hint>
+                    <mat-hint *ngIf="password.errors['minlength'] "> Mínimo 4 caracteres.</mat-hint>
+                    <mat-hint *ngIf="password.errors['maxlength'] "> Maximo 20 caracteres.</mat-hint>
+                </mat-hint>
+            </mat-form-field>
+        </div>
+      
+        <div class="form-group">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Email:</mat-label>
+                <input type="text"  matInput id="email" [(ngModel)]="user.email" name="email" required
+                    minlength="4" maxlength="20" #email="ngModel"
+                    pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}">
+                <mat-hint  role="alert" style="height: 13px; font-size: small; "
+                    *ngIf="email.invalid && (email.dirty || email.touched)">
+                    <mat-hint *ngIf="email.errors['required']">Digite su nombre de usuario, por favor.</mat-hint>
+                    <mat-hint *ngIf="email.errors['pattern'] "> El formato debe ser user100@gmail.com</mat-hint>
+                </mat-hint>
+            </mat-form-field>
+        </div>
+        <button class="btn btn-success mt-4" [disabled]="!usuarioForm.form.valid">Guardar</button>
+
+    </form>
+</div>
+<br>
+
+
+

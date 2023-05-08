@@ -1,12 +1,14 @@
 
 <br>
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" *ngIf="isLogged">
     <span>Listado de productos</span>
+   
   </mat-toolbar>
+  <button class="btn btn-primary mt-2" (click)="irCrear()">Crear producto</button>
   <br>
   <mat-form-field>
     <mat-label>Filtro</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="escribir producto o categoria" #input autocomplete="off">
+    <input matInput (keyup)="applyFilter($event)" placeholder="escribir producto" #input autocomplete="off">
   </mat-form-field>
 
    <div class="mat-elevation-z8"> 
@@ -28,14 +30,27 @@
       <!-- Weight Column -->
       <ng-container matColumnDef="categoria">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Categoria </th>
-        <td mat-cell *matCellDef="let listaProd" routerLink="/producto/{{listaProd.id}}"> {{listaProd.categoria}} </td>
+        <td mat-cell *matCellDef="let listaProd" routerLink="/producto/{{listaProd.id}}">{{listaProd.category.name}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="editar">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Editar</th>
+        <td mat-cell *matCellDef="let listaProd"><button class="btn btn-outline-dark" routerLink="/crear/{{listaProd.id}}">
+          <i class="bi bi-pencil-fill"></i></button> </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="eliminar">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Eliminar</th>
+        <td mat-cell *matCellDef="let listaProd"><button class="btn btn-outline-danger" (click)=" eliminarProducto(listaProd.id)">
+          <i class="bi bi-trash3-fill"></i></button> </td>
       </ng-container>
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns" ></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;" id="marca"></tr>
+    
     </table>
-
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     
    </div>
     
+  

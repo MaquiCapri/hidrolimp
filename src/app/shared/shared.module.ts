@@ -18,6 +18,7 @@
  import {MatDatepickerModule} from '@angular/material/datepicker';
  import { MatNativeDateModule } from '@angular/material/core';
  import { ReactiveFormsModule } from '@angular/forms';
+import { MatSnackBarModule} from '@angular/material/snack-bar'
 
  @NgModule({
    declarations: [],
@@ -39,7 +40,7 @@
      MatDatepickerModule,     
      ReactiveFormsModule,
      MatNativeDateModule,
-
+     MatSnackBarModule
    ],
    exports:[
      MatSlideToggleModule ,

@@ -10,7 +10,6 @@ import { ServicesService } from 'src/app/service/services.service';
   styleUrls: ['./producto-detalle.component.css']
 })
 export class ProductoDetalleComponent implements OnInit {
-  
   prod: any=[];
  
   constructor(private router: Router, public param: ActivatedRoute, private service: ServicesService, private http: HttpClient) { 
@@ -23,9 +22,11 @@ export class ProductoDetalleComponent implements OnInit {
      data=> {
       this.prod = data;
       console.log(this.prod)
+   });
    }
-   );
-           
+
+   irProducto(){
+    this.router.navigate([''])
    }
 
 }

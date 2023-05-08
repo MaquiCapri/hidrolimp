@@ -7,14 +7,14 @@
 .content {
     position: absolute;
     margin-top: 10%;
-    background-color: #3f51b5;
-    color: #000;
+    background-color: #3f51b5 ;
+    color: #17252A;
     padding: 10px;
     width: 99%;
     height: 20%;
     text-align: center;
 }
-
+/*  #7A98B9 */
 .content a {
     color: #3f51b5;
 }
@@ -25,7 +25,7 @@
 
 .irProductos {
     text-decoration: none;
-    background-color: #000;
+    background-color:#17252A;
     color: #fff;
     padding: 10px 10px;
     border-radius: 5px;
@@ -43,10 +43,11 @@
 
 .productbox {
     padding: 10px 5px;
+    margin: auto;
 }
 
 .productbox img {
-    width: 13.5rem;
+    width: 12rem;
     height: 250px;
     object-fit: cover;
     border-radius: 5px;
@@ -79,7 +80,7 @@ h3 {
 
 .irLista {
     text-decoration: none;
-    background-color: #000;
+    background-color: #17252A;
     color: #fff;
     padding: 10px 10px;
     border-radius: 5px;
@@ -91,6 +92,20 @@ h3 {
     color: #3f51b5;
 }
 
+.input {
+    border: none;
+    outline: none;
+    font-weight: 300;
+    font-size: 1.2rem;
+    height: 29px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #17252A;
+    margin: auto;
+}
+
+
+
    @media (max-width: 500px) {
     .col-lg-3 {
         flex-direction: column;
@@ -98,4 +113,6 @@ h3 {
         display: flex;
         justify-content: center;
     }
+
+   
 }   

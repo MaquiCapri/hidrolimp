@@ -5,12 +5,17 @@
       <img src="./assets/logoHidrolimp1.jpg">
     </div>
     
-     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" aria-controls="navbarNav"  aria-label="Toggle navigation" (click)="mostrar()" data-bs-target="#navbarNav" aria-expanded="true"  >
+     <button class="navbar-toggler" type="button" (click)="mostrar()" data-bs-toggle="collapse" aria-controls="navbarNav"  aria-label="Toggle navigation" data-bs-target="#navbarNav" aria-expanded="true"  >
+      
       <span class="navbar-toggler-icon"></span>
-      <span id="oculta" (click)="ocultar()">x</span>
+
+
+      <span id="oculta" (click)="ocultar()" >x</span>
+     
     </button>   
 
     <div class="collapse navbar-collapse" id="navbarNav" *ngIf="ocultar1">
+     
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
           <a class="nav-link " routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Inicio</a>
@@ -27,7 +32,26 @@
         <li class="nav-item">
           <a class="nav-link " routerLink="contacto" routerLinkActive="active">Contacto</a>
         </li>
+       
+       
+        <!-- <li class="nav-item"> -->
+
+            <!-- <input type="button" id="login" value="Iniciar sesión" (click)="irLogin()"  *ngIf="!isLogged"> -->
+            <!-- <button type="button" id="login" (click)="irLogin()"  *ngIf="!isLogged"><span>Iniciar sesión</span></button> 
+            
+            <button type="button" id="login" (click)="onlogOut()" *ngIf="isLogged"><span>Cerrar sesión</span></button> 
+          </div> -->
+           
+          <!-- <a class="nav-link "  routerLinkActive="active" (click)="irLogin()"  *ngIf="!isLogged">Iniciar sesión</a> 
+          <a class="nav-link "  routerLinkActive="active" (click)="onlogOut()" *ngIf="isLogged">Cerrar sesión</a>  -->
+        <!-- </li> -->
+        <li class="nav-item">
+          <a class="nav-link " routerLink="signup" routerLinkActive="active">Registrar</a>
+        </li>
       </ul>
     </div>
+   
    </div>
 </nav>  
+<button type="button" class="btn btn-outline-light" (click)="irLogin()" *ngIf="!isLog">INGRESO</button>
+ <button type="button" class="btn btn-outline-light" (click)="onlogOut()" *ngIf="isLog">CERRAR SESION</button> 

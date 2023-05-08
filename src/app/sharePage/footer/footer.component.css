@@ -1,12 +1,12 @@
 .footer {
-    position: sticky;
+    /* position: sticky; */
     top: 100%;
     padding: 20px 10px;
     overflow: hidden;
     color: #FFF;
-    background-color:  #101011;;
+    background-color: #17252A;
 }
-
+/* #101011; */
 h3 {
     color: #FFF;
     font-size: 20px;
@@ -31,4 +31,8 @@ a:hover {
 
 i {
     padding: 0px 10px;
+}
+
+.container-fluid{
+    margin-top: -80px;
 }

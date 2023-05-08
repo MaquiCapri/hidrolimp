@@ -8,20 +8,38 @@ import { Producto } from '../producto.model';
 })
 export class ServicesService {
 
-URL = 'http://localhost:8890/producto/';
-url = 'http://localhost:8890/category/'; 
-  constructor(private http: HttpClient) { }
+URL = 'http://localhost:8890/producto/'; 
 
-   public getProducto(id: any):Observable<Producto>{
+  constructor(private http: HttpClient) { }
+    //servicios para productos
+    public getProducto(id: any):Observable<Producto>{
      return this.http.get<Producto>(this.URL + `traer/${id}`);
     }
 
     public lista(): Observable<Producto[]>{
       return this.http.get<Producto[]>(this.URL + 'trae');
     }
-    
-    public getCategory(id: any):Observable<any>{
-      return this.http.get<any>(this.url + `${id}`);
-     }
+
+     guardarProducto(producto: Producto): Observable<Producto>{
+       return this.http.post<Producto>(this.URL + 'crear', producto);
+    }
+
+    actualizarProducto(producto: Producto): Observable<Producto>{
+      return this.http.put<Producto>(this.URL + 'actualizar/'+ producto.id,producto);
+    }
    
+    eliminarProducto(id: number): Observable<any>{
+      return this.http.delete<any>(this.URL + 'eliminar/' + id)
+    }
+
+   //categorias
+    public obtenerProductosPorCategoria(categoryId: any):Observable<Producto[]>{
+      return this.http.get<Producto[]>(this.URL + 'categoria/' + categoryId);
+    }
+
+
+    //para la barra 
+    getProductoNombre(searchTerm:string): Observable<Producto[]>{
+      return this.http.get<Producto[]>(this.URL + 'nombre/' + searchTerm);
+      };
 }

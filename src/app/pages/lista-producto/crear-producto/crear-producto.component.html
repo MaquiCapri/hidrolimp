@@ -1,0 +1,73 @@
+
+ <div class="container text-center ">
+    <br>
+    <h3 class="mt-3" *ngIf="!producto.id">Guardar producto</h3>
+    <h3 class="mt-3" *ngIf="producto.id">Editar producto</h3>
+
+    <div class="row">
+        <form  #usuarioForm="ngForm" autocomplete="off">
+                <div>
+                    <label for="exampleFormControlInput" class="form-label mt-3"></label>
+                    <input type="text" class="form-control" name="nombre" placeholder="Nombre"
+                     [(ngModel)]="producto.nombre" required autocomplete="off" autofocus
+                     minlength="3" maxlength="60" #nombre="ngModel">
+                     <div role="alert" style="height: 13px; font-size: small; "
+                     *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                     <div *ngIf="nombre.errors['required']">Digite la descripción, por favor.</div>
+                     <div *ngIf="nombre.errors['minlength'] "> Mínimo 3 caracteres.</div>
+                     <div *ngIf="nombre.errors['maxlength'] "> Maximo 60 caracteres.</div>
+                     </div>
+                </div>
+                <!-- "exampleInputEmails" -->
+                <div class="form-group" >
+                    <label for="descripcion" class="form-label"></label>
+                    <input type="text" class="form-control" name="descripcion" placeholder="Descripción"
+                        [(ngModel)]="producto.descripcion" required 
+                        minlength="5" maxlength="200" #descripcion="ngModel">
+                        <div role="alert" style="height: 13px; font-size: small; "
+                        *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+                        
+                     <div *ngIf="descripcion.errors['required']">Digite la descripción, por favor.</div>
+                     <div *ngIf="descripcion.errors['minlength'] "> Mínimo 5 caracteres.</div>
+                     <div *ngIf="descripcion.errors['maxlength'] "> Maximo 200 caracteres.</div>
+                     </div>
+                </div>
+                <div class="col-form-group">
+                    <label for="imagen" class="form-label"></label>
+                    <input type="text" class="form-control" name="imagen" placeholder="Imagen" 
+                     [(ngModel)]="producto.imagen" required minlength="4" maxlength="60" #imagen="ngModel">
+                     <div role="alert" style="height: 13px; font-size: small; "
+                        *ngIf="imagen.invalid && (imagen.dirty || imagen.touched)">
+                     <div *ngIf="imagen.errors['required']">Digite la imagen, por favor.</div>
+                     <div *ngIf="imagen.errors['minlength'] "> Mínimo 4 caracteres.</div>
+                     <div *ngIf="imagen.errors['maxlength'] "> Maximo 60 caracteres.</div>
+                     </div>
+                
+                    </div>
+                <div class="form-group">
+                    <label for="precio" class="form-label"></label>
+                    <input type="text" class="form-control" name="precio" placeholder="Precio"
+                        [(ngModel)]="producto.precio" required 
+                        minlength="1" maxlength="60" #precio="ngModel">
+                        <div role="alert" style="height: 13px; font-size: small; "
+                        *ngIf="precio.invalid && (precio.dirty || precio.touched)">
+                     <div *ngIf="precio.errors['required']">Digite el precio, por favor.</div>
+                    
+                     <div *ngIf="precio.errors['maxlength'] "> Máximo 60 caracteres.</div>
+                     </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="categoria" class="form-label">Categoría</label>
+                    <select [compareWith]="compararCategoria" [(ngModel)]="producto.category" class="form-control" name="categoria"  required>
+                        <option [ngValue]="undefined"  placeholder="Seleccionar categoria">--- Seleccionar una categoria ---</option>
+                        <option *ngFor="let categoria of categorias" [ngValue]="categoria"> {{categoria.name}} </option>
+                       </select> 
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-dark" (click)="guardarProducto()" *ngIf="!producto.id" [disabled]="!usuarioForm.form.valid">Guardar</button>
+                    <button type="submit" class="btn btn-dark" (click)="actualizarProducto()" *ngIf="producto.id" [disabled]="!usuarioForm.form.valid">Guardar</button> 
+              
+            </form>
+    </div>
+</div>

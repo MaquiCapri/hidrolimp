@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 //componentes:
@@ -17,6 +17,11 @@ import { FooterComponent } from './sharePage/footer/footer.component';
 import { ProductoDetalleComponent } from './pages/producto-detalle/producto-detalle.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ObjToArrayPipe } from './objToArray.pipe';
+import { SignupComponent } from './pagesLogin/signup/signup.component';
+import { LoginComponent } from './pagesLogin/login/login.component';
+import { interceptorProvider } from './service/interceptor-service';
+import { CrearProductoComponent } from './pages/lista-producto/crear-producto/crear-producto.component';
+import { ListaComponent } from './pages/home/lista/lista.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,11 @@ import { ObjToArrayPipe } from './objToArray.pipe';
     ListaProductoComponent,
     FooterComponent,
     ProductoDetalleComponent,
-    ObjToArrayPipe
+    ObjToArrayPipe,
+    SignupComponent,
+    LoginComponent,
+    CrearProductoComponent,
+    ListaComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +49,10 @@ import { ObjToArrayPipe } from './objToArray.pipe';
     NgxPaginationModule,
     HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+     interceptorProvider
+  ],
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }
