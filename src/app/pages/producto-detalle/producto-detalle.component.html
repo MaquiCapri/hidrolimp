@@ -1,40 +1,17 @@
-<div class="section">
-  <!-- <i class="bi bi-arrow-left" style="width: 40px;"></i> -->
-  <!-- <svg xmlns="http://www.w3.org/2000/svg" width="56" height="26" fill="currentColor" class="bi bi-arrow-left"
-    viewBox="0 0 16 16" (click)="irProducto()">
-    <path fill-rule="evenodd"
-      d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
-  </svg> -->
 
-  <div class="imagen">
-    <img src=" {{prod.imagen}} " alt="fotoProducto">
-  </div>
+<mat-grid-list cols="1">
+  <mat-grid-tile *ngFor="let fileHandle of data.images" style="text-align: center;height: 100px;">
+    
+    <img [src]="fileHandle.url" width="150">
+    
+    <div class="row">
+      <p><b>{{data.nombre}}</b></p>
 
-  <div class="texto">
-    <h3> {{prod.nombre}} </h3>
-    <p> {{prod.descripcion}} </p>
-    <p> {{prod.precio | currency:'ARS ':true}} </p>
-  </div>
+      <p style=" font-size: small;"> {{data.descripcion}} </p>
 
-</div>
+      <p> {{data.precio | currency:'ARS ':true}} </p>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
 
 
-
-
-<!-- <div class="container">
-  mt-5 mb-5 -->
-<!-- <div class="col-lg-1">
-     
-      <div class="productbox mt-3">
-        <img src=" {{prod.imagen}} " alt="fotoProducto"> 
-        <div class="texto"> 
-          <i class="bi bi-backspace" style="float: right"></i>
-
-            <h3> {{prod.nombre}} </h3>
-          <p> {{prod.descripcion}} </p>  
-         <p> {{prod.precio | currency:'ARS ':true}} </p> 
-         </div>
-      </div>
-    </div>  
-</div>
- -->

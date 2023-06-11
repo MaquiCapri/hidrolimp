@@ -1,44 +1,96 @@
+/* style= */
+
 .banner {
-    height: 600px;
-    background-position: center top;
-    background-size: cover;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
-.content {
+.banner::before {
+    content: '';
+    background-image: url('/../assets/portada.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     position: absolute;
-    margin-top: 10%;
-    background-color: #3f51b5 ;
-    color: #17252A;
-    padding: 10px;
-    width: 99%;
-    height: 20%;
-    text-align: center;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    opacity: 0.65;
 }
-/*  #7A98B9 */
+
+h1 {
+    font-size: 85px;
+    font-family: sans-serif;
+    text-align: center;
+    position: relative;
+    margin-top: -80px;
+}
+
+.logoMail {
+    /* text-underline-position: ; */
+    position: relative;
+}
+.logoMail:hover{
+    color: #0025f8;
+}
+/* 
+.banner {
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    background-position: center top;
+    background-size: cover;
+    opacity: 0.35;
+    
+} */
+
+/* .content {
+    margin-top: 7%;
+    color: #cfcfcf;
+    padding: 10px;
+    width: 55%;
+    height: 18%;
+    text-align: center;
+    border-radius: 5px;
+    background: rgba(22, 23, 24, 0.9);
+} */
+
+/* .content2{
+    border:2px solid rgba(112, 78, 3);;
+    border-radius: 5px;
+} */
+
+
 .content a {
-    color: #3f51b5;
+    font-size: 18px;
+    color: #0c1113;
+    margin: 0px 5px;
 }
 
 .content a:hover {
-    background-color: #fff;
+    color: #0025f8;
 }
 
-.irProductos {
-    text-decoration: none;
-    background-color:#17252A;
-    color: #fff;
-    padding: 10px 10px;
-    border-radius: 5px;
-    font-size: 18px;
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 /* CS PRODUCTOS */
-
 .col-lg-3 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100rem;
+}
+
+h1 {
+    color: #0c1416;
 }
 
 .productbox {
@@ -51,26 +103,11 @@
     height: 250px;
     object-fit: cover;
     border-radius: 5px;
+    border: 1px solid lightgray;
 }
 
-#uno:hover {
-    background-color: #3f51b5;
-    color: #fff;
-}
-
- #dos:hover {
-    background-color: #3f51b5;
-    color: #fff;
-} 
-
-#tres:hover {
-    background-color: #3f51b5;
-    color: #fff;
-}
-
-#cuatro:hover {
-    background-color: #3f51b5;
-    color: #fff;
+.productbox img:hover {
+    border: 1px solid rgb(92, 91, 91);
 }
 
 h3 {
@@ -78,35 +115,42 @@ h3 {
     text-align: center;
 }
 
-.irLista {
-    text-decoration: none;
-    background-color: #17252A;
-    color: #fff;
-    padding: 10px 10px;
-    border-radius: 5px;
-    font-size: 18px;
-    width: 100px;
+.whatsapp {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25D366;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 29.8px;
+    z-index: 100;
 }
 
-.irLista:hover {
-    color: #3f51b5;
+.bi-whatsapp {
+    margin-top: 11px;
 }
 
-.input {
-    border: none;
-    outline: none;
-    font-weight: 300;
-    font-size: 1.2rem;
-    height: 29px;
-    border-radius: 10px;
-    cursor: pointer;
-    border: 1px solid #17252A;
-    margin: auto;
+.whatsapp:hover {
+    background-color: #115f2e;
 }
 
+#prod {
+    /* background-color: #b1bfc4; */
+    margin-bottom: -17px;
+    width: 100%;
+    padding: 0px 0px;
+    /* margin-top: -100px; */
+}
 
+@media (max-width:710px) {
+    .content {
+        width: 93%;
+    }
+}
 
-   @media (max-width: 500px) {
+@media (max-width: 500px) {
     .col-lg-3 {
         flex-direction: column;
         align-items: center;
@@ -114,5 +158,17 @@ h3 {
         justify-content: center;
     }
 
-   
-}   
+    .content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 420px) {
+    .content {
+        width: 87%;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+}

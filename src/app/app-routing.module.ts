@@ -10,6 +10,7 @@ import { ProductosComponent } from './pages/productos/productos.component';
 import { LoginComponent } from './pagesLogin/login/login.component';
 import { SignupComponent } from './pagesLogin/signup/signup.component';
 import { CrearProductoComponent } from './pages/lista-producto/crear-producto/crear-producto.component';
+import { ProductResolveService } from './product-resolve.service';
 
 
 const routes: Routes = [
@@ -23,9 +24,11 @@ const routes: Routes = [
   { path: 'category/:id', component: ProductosComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'crear', component: CrearProductoComponent },
+  { path: 'crear', component: CrearProductoComponent,
+resolve:{
+  producto: ProductResolveService
+} },
   { path: 'crear/:id', component: CrearProductoComponent },
-
 ];
 
 @NgModule({

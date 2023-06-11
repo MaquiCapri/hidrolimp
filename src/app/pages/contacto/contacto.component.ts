@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CodigoJsService } from 'src/app/codigo-js.service';
+
 
 @Component({
   selector: 'app-contacto',
@@ -8,8 +8,8 @@ import { CodigoJsService } from 'src/app/codigo-js.service';
 })
 export class ContactoComponent implements OnInit {
 
-  constructor(private serviceJs: CodigoJsService) { 
-    this.serviceJs.loadScript();
+  constructor() { 
+    
   }
 
   ngOnInit(): void {

@@ -21,7 +21,12 @@ import { SignupComponent } from './pagesLogin/signup/signup.component';
 import { LoginComponent } from './pagesLogin/login/login.component';
 import { interceptorProvider } from './service/interceptor-service';
 import { CrearProductoComponent } from './pages/lista-producto/crear-producto/crear-producto.component';
-import { ListaComponent } from './pages/home/lista/lista.component';
+import { DragDirective } from './drag.directive';
+import { ProductoDialogComponent } from './pages/lista-producto/producto-dialog/producto-dialog.component';
+import { AlertDialogComponent } from './pages/lista-producto/alert-dialog/alert-dialog.component';
+import { PaginatePipe } from './pipes/paginate.pipe';
+import { MatPaginatorIntl } from '@angular/material/paginator';
+import { CustomMatPaginatorIntl } from './paginator-es';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,10 @@ import { ListaComponent } from './pages/home/lista/lista.component';
     SignupComponent,
     LoginComponent,
     CrearProductoComponent,
-    ListaComponent,
+    DragDirective,
+    ProductoDialogComponent,
+    AlertDialogComponent,
+    PaginatePipe,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +58,10 @@ import { ListaComponent } from './pages/home/lista/lista.component';
     HttpClientModule
   ],
   providers: [
-     interceptorProvider
+     interceptorProvider,
+     
+    {provide: MatPaginatorIntl,
+       useClass: CustomMatPaginatorIntl}
   ],
   bootstrap: [AppComponent],
 

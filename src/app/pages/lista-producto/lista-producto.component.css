@@ -1,15 +1,17 @@
 table {
     width: 100%;
   }
-  
+/*   
  #marca:hover{
   background-color: rgb(158, 200, 228);
-}
+} */
 
   .mat-form-field {
     font-size: 14px;
     width: 90%;
     margin-right: 10px;
   }
+
+
 
  

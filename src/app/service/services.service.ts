@@ -20,9 +20,16 @@ URL = 'http://localhost:8890/producto/';
       return this.http.get<Producto[]>(this.URL + 'trae');
     }
 
-     guardarProducto(producto: Producto): Observable<Producto>{
-       return this.http.post<Producto>(this.URL + 'crear', producto);
+    addProduct(producto: FormData){
+      return this.http.post<Producto>(this.URL + 'crear', producto);
     }
+
+    public getAllProducts(){
+      return this.http.get<Producto[]>(this.URL + 'trae');
+    }
+    //  guardarProducto(producto: FormData): Observable<Producto>{
+    //    return this.http.post<Producto>(this.URL + 'crear', producto);
+    // }
 
     actualizarProducto(producto: Producto): Observable<Producto>{
       return this.http.put<Producto>(this.URL + 'actualizar/'+ producto.id,producto);
@@ -37,8 +44,7 @@ URL = 'http://localhost:8890/producto/';
       return this.http.get<Producto[]>(this.URL + 'categoria/' + categoryId);
     }
 
-
-    //para la barra 
+    //para la barra busqueda
     getProductoNombre(searchTerm:string): Observable<Producto[]>{
       return this.http.get<Producto[]>(this.URL + 'nombre/' + searchTerm);
       };

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { LoginUsuario } from 'src/app/model/login-usuario';
 import { AuthService } from 'src/app/service/auth.service';
@@ -18,8 +19,10 @@ export class LoginComponent implements OnInit {
   // inicializamos en un array vacia a roles
   roles: string[] = [];
   errMsj!: string;
-  
-  constructor(private router: Router, private tokenService: TokenService, private authService: AuthService) { }
+  isLoggedAdmin = false;
+
+
+  constructor(private snack: MatSnackBar, private router: Router, private tokenService: TokenService, private authService: AuthService) { }
 
   ngOnInit(): void {
     if (this.tokenService.getToken()) {
@@ -29,8 +32,8 @@ export class LoginComponent implements OnInit {
       this.isLogginFail = false;
       //se guarda en la variable roles lo que traigas de token...
       this.roles = this.tokenService.getAuthorities();
+      // console.log(this.roles)
     }
-    
   }
 
   onLogin(): void {
@@ -42,15 +45,47 @@ export class LoginComponent implements OnInit {
       this.tokenService.setUserName(data.nombreUsuario);
       this.tokenService.setAuthorities(data.authorities);
       this.roles = data.authorities;
-      this.router.navigate([''])
+      if (this.roles.length == 2) {
+        //si esta logeado trae un token
+        this.isLoggedAdmin = true;
+      } else {
+        this.router.navigate(['']);
+      }
     }, err => {
       this.isLogged = false;
       this.isLogginFail = true;
       this.errMsj = err.error.mensaje;
+      this.snack.open('Error en el Usuario o clave. Verfique que esten correctamnete', 'Aceptar', {
+        verticalPosition: 'top',
+        horizontalPosition: 'center',
+      })
       console.log(this.errMsj);
-
     })
   }
- 
+
+  //te redirecciona a la misma pagina actualizada
+  reloadPage() {
+    const currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigateByUrl(currentUrl);
+    });
+  }
+
+  irLista() {
+    this.router.navigate(['lista']);
+  }
+
+  verificar() {
+    // this.roles = this.tokenService.getAuthorities();
+    // if(this.roles == undefined){
+    //   this.snack.open('Verifique que esté correctamente la clave','Aceptar',{
+    //     verticalPosition: 'top',
+    //     horizontalPosition: 'center',
+
+    //  })
+    //  console.log(this.roles)
+    // }
+  }
+
 
 }

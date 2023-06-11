@@ -1,19 +1,58 @@
- <div class="container mt-5 mb-5">
-    <div class="row" >
- 
-      <div class="col-lg-3 col-md-4 col-sm-5" *ngFor="let productosCategoria of productosCategoria | objToArray | paginate: { itemsPerPage:itemsPerPage, currentPage: p } " routerLink="/producto/{{productosCategoria.id}}" >
-        
-            <div class="productbox mt-3 mb-3" >
-             
-                 <img src=" {{productosCategoria.imagen}} " alt="fotoProducto"> 
-                 <h3> {{productosCategoria.nombre}} </h3>  
-                 <p> {{productosCategoria.descripcion}}</p>
-                  <p> {{productosCategoria.precio | currency:'ARS ':true}} </p>   
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-4 productDetails" *ngFor="let p of productDetails | paginate:page_size:page_number"  >
+          <div class="productbox">
+           
+            <div class="image-container ">
+              <img class="imagen" [src]="p.productImages[0].url" style="height: 100px; width: 90%;" alt="">
+            </div> 
+            <div style="font-size: small;">
+              <p><b>{{p.nombre}}</b></p>
+            </div> 
+            <p style=" height: 40px; width: 100%; overflow: hidden; text-overflow: ellipsis; font-size: small;">{{p.descripcion}}</p>
+            <div >
+              <p>{{p.precio | currency:'ARS ':true}}</p>
             </div>
-         </div> 
-    </div>
 
-</div> 
-<div class="paginacion">
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
-</div>
+            <div class="mb-1" style="display: grid;place-items: center;font-size: small;" >
+              <button type="button" mat-raised-button color="warn" (click)="showImages(p)">Detalles</button>
+            </div>
+            
+          </div>
+       </div> 
+  </div>
+
+   <mat-paginator [length]="productDetails.length" [pageSize]="page_size" [pageSizeOptions]="pageSizeOptions" (page)="handlePage($event)"></mat-paginator> 
+  
+
+
+
+
+ <!-- <div class=" mt-1">
+<mat-grid-list cols="4" rowHeight="28rem" gutterSize="10">
+  <mat-grid-tile *ngFor="let p of productDetails">
+    <div class="row p-1">
+      <div class="image-container">
+        <img class="imagen" [src]="p.productImages[0].url" style="height: 150px; width: 90%;" alt="">
+      </div>
+        
+        <div class="mt-1">
+          <p><b>{{p.nombre}}</b></p>
+        </div>
+
+          <p style="white-space: inherit; height: 60%; width: 100%; overflow: hidden; text-overflow: ellipsis; font-size: small;">{{p.descripcion}}</p>
+
+        <div >
+          <p>{{p.precio | currency:'ARS ':true}}</p>
+        </div>
+
+        <div class="mt-1" style="display: grid;place-items: center;" >
+          <button type="button" mat-raised-button color="warn" (click)="showImages(p)">Detalles</button>
+        </div>
+          
+    </div>
+  </mat-grid-tile>
+
+</mat-grid-list>
+</div>   -->
+
+<!-- <div class="container mt-5 mb-5"> -->

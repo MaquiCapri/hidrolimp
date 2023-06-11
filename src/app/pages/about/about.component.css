@@ -1,5 +1,6 @@
 .container{
     margin-top: 15px;
+    min-height: 60vh;
 }
 .foto{
     width: 8rem;
@@ -8,4 +9,15 @@
 
 img{
     width:100%;
+}
+
+@media (max-width:400px) {
+    .foto {
+        float: none;
+    }
+
+    .centrar{
+        display: flex;
+        justify-content: center;
+    }
 }

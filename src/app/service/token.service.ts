@@ -22,6 +22,10 @@ roles: Array<string> = [];
   public getToken():string{
     return sessionStorage.getItem(TOKEN_KEY)!;
   }
+
+  public getTokens():string{
+    return  window.sessionStorage.getItem(AUTHORITIES_KEY)!;
+  }
  
   public setUserName(userName: string): void{
     window.sessionStorage.removeItem(USERNAME_KEY);

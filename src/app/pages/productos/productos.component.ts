@@ -1,8 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 import { Producto } from 'src/app/producto.model';
-import { CategoriaService } from 'src/app/service/categoria.service';
+import { ImageProcessingService } from 'src/app/service/image-processing.service';
 import { ServicesService } from 'src/app/service/services.service';
+import { ProductoDetalleComponent } from '../producto-detalle/producto-detalle.component';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
+
 
 @Component({
   selector: 'app-productos',
@@ -10,59 +16,82 @@ import { ServicesService } from 'src/app/service/services.service';
   styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent implements OnInit {
+   
+  listaProd: Producto[] = [];
   categorias = true;
+  productDetails=[];
 
-  //  paginacion
-  getMenuCategoria: any;
-  p: number = 1;
-  itemsPerPage: number = 6;
-  totalProduct: any;
-//iteracion:
-  productos: any;
-  cate: any;
-  productosCategoria : Producto[]=[];
+   //  paginacion
+   page_size:number= 5
+   page_number:number=1
+   pageSizeOptions = [5, 10, 20]
  
-  constructor(private categoriaService: CategoriaService, private service: ServicesService, private router: Router, private activatedRoute: ActivatedRoute, public param: ActivatedRoute) { }
+  constructor(private imageProcessingService:ImageProcessingService,
+    private service: ServicesService,
+     private router: Router,
+     public param: ActivatedRoute,private imagesDialog: MatDialog,) { }
 
   ngOnInit(): void {
-    //this.productoTrae();
-  
-      let id = this.param.snapshot.paramMap.get('id');
-      console.log(id)
-      this.service.obtenerProductosPorCategoria(id).subscribe(
-       data=> {
-         this.productosCategoria = data;
-      // this.totalProduct = data.lenght;
-         console.log( data)
-      }
-      );
+     this.obtenerProductosPorCategoria();
   }
 
-   productoTrae() {
-     this.service.lista().subscribe((data) => {
-       this.productosCategoria  = data;
-    //  if (this.productosCategoria.category =="1") {
-    //      alert("si");
-    //    }else{
-    //     alert("no");
+       public obtenerProductosPorCategoria(){
+        let id = this.param.snapshot.paramMap.get('id');
+           console.log(id)
+           this.service.obtenerProductosPorCategoria(id)
+           .pipe(
+                 map((x: Producto[],i) => x.map((producto: Producto) => this.imageProcessingService.createImages(producto)))
+               )
+           .subscribe(
+             (resp: Producto[]) => {
+               console.log(resp);
+               this.productDetails = resp;
+             },(error:HttpErrorResponse)=>{
+               console.log(error);
+             }
+           );
+        } 
 
-    //   }
-        
-        console.log(this.productosCategoria);
-      });
-     }
-  
+        showImages(producto:Producto){
+          console.log(producto);
+          this.imagesDialog.open( ProductoDetalleComponent,{
+            data:{
+            images:producto.productImages,
+            nombre:producto.nombre,
+            descripcion:producto.descripcion,
+            precio:producto.precio 
+            },
+            height: '300px',
+            width: '300px' } );
+         }
+
+  handlePage(e: PageEvent){
+    this.page_size = e.pageSize
+    this.page_number = e.pageIndex + 1
+    }
+   
 }
-// if (this.theme.length ==0) {
-      //   this.alert5 = true;
-      //       }
-        //  if(this.(searchTerm)){
-        //  this.themes= [];
-        // console.log(searchTerm.lenght);
-      // }else {
-      //  alert("esta vacio ");
-        // }
+  
 
-        // console.log(this.theme);
-    
-        // console.log(searchTerm.lenght);
+    //   let id = this.param.snapshot.paramMap.get('id');
+    //   console.log(id)
+    //   this.service.obtenerProductosPorCategoria(id)
+    //   .pipe(
+    //     map((x: Producto[],i) => x.map((producto: Producto) => this.imageProcessingService.createImages(producto)))
+    //   )
+    //  .subscribe(
+    //    (resp:Producto[]) => {
+    //     this.productosCategoria = resp;
+    //    console.log(resp);
+    //  },(error: HttpErrorResponse)=> {
+    //    console.log(error);
+    //  });
+      
+     
+     //.subscribe(
+       //data=> {
+         //this.productosCategoria = data;
+      // this.totalProduct = data.lenght;
+        // console.log( data)
+      //}
+      //);
