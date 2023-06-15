@@ -7,13 +7,15 @@
     flex-direction: row;
     /* centrar el box : al hijo*/
     justify-content: center;
-    /* min-height: 55vh; */
+      min-height: 55vh;  
+      margin-top: 20px;
 }
 
 .productDetails {
     border: 1px solid lightgray;
     border-radius: 5px;
     width: 10rem;
+    height: 264px;
     margin: 7px;
 }
 
@@ -47,7 +49,9 @@ pagination-controls {
     color: #3f51b5;
 }
 
-
+p{
+    height: 20px;
+}
 
 
 

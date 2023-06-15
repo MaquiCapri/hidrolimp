@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
       this.isLogged = false;
       this.isLogginFail = true;
       this.errMsj = err.error.mensaje;
-      this.snack.open('Error en el Usuario o clave. Verfique que esten correctamnete', 'Aceptar', {
+      this.snack.open('Error en el Usuario o clave. Verfique que esten correctamente', 'Aceptar', {
         verticalPosition: 'top',
         horizontalPosition: 'center',
       })
